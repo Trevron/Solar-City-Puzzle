@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/Solarpunk Loop.mp3-e990c7e5c556e2af9133323a322cd894.mp3str"
+
+[deps]
+
+source_file="res://SFX/Solarpunk Loop.mp3"
+dest_files=[ "res://.import/Solarpunk Loop.mp3-e990c7e5c556e2af9133323a322cd894.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

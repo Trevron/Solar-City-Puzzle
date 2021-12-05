@@ -1,0 +1,182 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://GUI/pixel_theme.tres" type="Theme" id=1]
+[ext_resource path="res://Scripts/GUI.gd" type="Script" id=2]
+[ext_resource path="res://GUI/pixel_tiles.tres" type="TileSet" id=3]
+[ext_resource path="res://GUI/Icons/puzzle_hover_32px.png" type="Texture" id=4]
+[ext_resource path="res://GUI/Icons/puzzle_pressed_32px.png" type="Texture" id=5]
+[ext_resource path="res://GUI/Icons/puzzle_normal_32px.png" type="Texture" id=6]
+[ext_resource path="res://GUI/GUI_8px_Patch.png" type="Texture" id=7]
+
+[node name="GUI" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="puzzle_button" type="TextureButton" parent="."]
+visible = false
+margin_right = 32.0
+margin_bottom = 34.0
+texture_normal = ExtResource( 6 )
+texture_pressed = ExtResource( 5 )
+texture_hover = ExtResource( 4 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="NinePatchRect" type="NinePatchRect" parent="."]
+visible = false
+anchor_top = 1.0
+anchor_bottom = 1.0
+margin_top = -34.0
+margin_right = 40.0
+texture = ExtResource( 7 )
+region_rect = Rect2( 0, 0, 24, 24 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -268.0
+margin_top = -34.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TileMap" type="TileMap" parent="HBoxContainer"]
+modulate = Color( 1, 1, 1, 0.701961 )
+position = Vector2( 0, -680 )
+tile_set = ExtResource( 3 )
+cell_size = Vector2( 8, 8 )
+format = 1
+tile_data = PoolIntArray( 5570561, 9, 0, 5570562, 14, 0, 5570563, 14, 0, 5570564, 14, 0, 5570565, 14, 0, 5570566, 14, 0, 5570567, 14, 0, 5570568, 14, 0, 5570569, 14, 0, 5570570, 14, 0, 5570571, 14, 0, 5570572, 14, 0, 5570573, 14, 0, 5570574, 14, 0, 5570575, 14, 0, 5570576, 14, 0, 5570577, 14, 0, 5570578, 14, 0, 5570579, 14, 0, 5570580, 14, 0, 5570581, 14, 0, 5570582, 14, 0, 5570583, 14, 0, 5570584, 14, 0, 5570585, 14, 0, 5570586, 14, 0, 5570587, 14, 0, 5570588, 14, 0, 5570589, 14, 0, 5570590, 10, 0, 5636097, 15, 0, 5636098, 17, 0, 5636099, 17, 0, 5636100, 17, 0, 5636101, 17, 0, 5636102, 17, 0, 5636103, 17, 0, 5636104, 17, 0, 5636105, 17, 0, 5636106, 17, 0, 5636107, 17, 0, 5636108, 17, 0, 5636109, 17, 0, 5636110, 17, 0, 5636111, 17, 0, 5636112, 17, 0, 5636113, 17, 0, 5636114, 17, 0, 5636115, 17, 0, 5636116, 17, 0, 5636117, 17, 0, 5636118, 17, 0, 5636119, 17, 0, 5636120, 17, 0, 5636121, 17, 0, 5636122, 17, 0, 5636123, 17, 0, 5636124, 17, 0, 5636125, 17, 0, 5636126, 16, 0, 5701633, 15, 0, 5701634, 17, 0, 5701635, 17, 0, 5701636, 17, 0, 5701637, 17, 0, 5701638, 17, 0, 5701639, 17, 0, 5701640, 17, 0, 5701641, 17, 0, 5701642, 17, 0, 5701643, 17, 0, 5701644, 17, 0, 5701645, 17, 0, 5701646, 17, 0, 5701647, 17, 0, 5701648, 17, 0, 5701649, 17, 0, 5701650, 17, 0, 5701651, 17, 0, 5701652, 17, 0, 5701653, 17, 0, 5701654, 17, 0, 5701655, 17, 0, 5701656, 17, 0, 5701657, 17, 0, 5701658, 17, 0, 5701659, 17, 0, 5701660, 17, 0, 5701661, 17, 0, 5701662, 16, 0, 5767169, 11, 0, 5767170, 13, 0, 5767171, 13, 0, 5767172, 13, 0, 5767173, 13, 0, 5767174, 13, 0, 5767175, 13, 0, 5767176, 13, 0, 5767177, 13, 0, 5767178, 13, 0, 5767179, 13, 0, 5767180, 13, 0, 5767181, 13, 0, 5767182, 13, 0, 5767183, 13, 0, 5767184, 13, 0, 5767185, 13, 0, 5767186, 13, 0, 5767187, 13, 0, 5767188, 13, 0, 5767189, 13, 0, 5767190, 13, 0, 5767191, 13, 0, 5767192, 13, 0, 5767193, 13, 0, 5767194, 13, 0, 5767195, 13, 0, 5767196, 13, 0, 5767197, 13, 0, 5767198, 12, 0 )
+
+[node name="VSeparator" type="VSeparator" parent="HBoxContainer"]
+modulate = Color( 1, 1, 1, 0 )
+margin_right = 8.0
+margin_bottom = 34.0
+rect_min_size = Vector2( 8, 32 )
+
+[node name="Pollution" type="VBoxContainer" parent="HBoxContainer"]
+margin_left = 12.0
+margin_right = 60.0
+margin_bottom = 34.0
+rect_min_size = Vector2( 48, 32 )
+
+[node name="PollutionLabel" type="RichTextLabel" parent="HBoxContainer/Pollution"]
+margin_right = 48.0
+margin_bottom = 15.0
+theme = ExtResource( 1 )
+text = "POLLUTION"
+fit_content_height = true
+scroll_active = false
+
+[node name="PollutionNumber" type="RichTextLabel" parent="HBoxContainer/Pollution"]
+margin_top = 19.0
+margin_right = 48.0
+margin_bottom = 34.0
+theme = ExtResource( 1 )
+text = "0"
+fit_content_height = true
+scroll_active = false
+
+[node name="Solar" type="VBoxContainer" parent="HBoxContainer"]
+margin_left = 64.0
+margin_right = 112.0
+margin_bottom = 34.0
+rect_min_size = Vector2( 48, 32 )
+
+[node name="SolarLabel" type="RichTextLabel" parent="HBoxContainer/Solar"]
+margin_right = 48.0
+margin_bottom = 15.0
+theme = ExtResource( 1 )
+text = "SOLAR"
+fit_content_height = true
+scroll_active = false
+
+[node name="SolarNumber" type="RichTextLabel" parent="HBoxContainer/Solar"]
+margin_top = 19.0
+margin_right = 48.0
+margin_bottom = 34.0
+theme = ExtResource( 1 )
+text = "0"
+fit_content_height = true
+scroll_active = false
+
+[node name="Trees" type="VBoxContainer" parent="HBoxContainer"]
+margin_left = 116.0
+margin_right = 164.0
+margin_bottom = 34.0
+rect_min_size = Vector2( 48, 32 )
+
+[node name="TreeLabel" type="RichTextLabel" parent="HBoxContainer/Trees"]
+margin_right = 48.0
+margin_bottom = 15.0
+theme = ExtResource( 1 )
+text = "TREES"
+fit_content_height = true
+scroll_active = false
+
+[node name="TreeNumber" type="RichTextLabel" parent="HBoxContainer/Trees"]
+margin_top = 19.0
+margin_right = 48.0
+margin_bottom = 34.0
+theme = ExtResource( 1 )
+text = "0"
+fit_content_height = true
+scroll_active = false
+
+[node name="Water" type="VBoxContainer" parent="HBoxContainer"]
+margin_left = 168.0
+margin_right = 216.0
+margin_bottom = 34.0
+rect_min_size = Vector2( 48, 32 )
+
+[node name="WaterLabel" type="RichTextLabel" parent="HBoxContainer/Water"]
+margin_right = 48.0
+margin_bottom = 15.0
+theme = ExtResource( 1 )
+text = "WATER"
+fit_content_height = true
+scroll_active = false
+
+[node name="WaterNumber" type="RichTextLabel" parent="HBoxContainer/Water"]
+margin_top = 19.0
+margin_right = 48.0
+margin_bottom = 34.0
+theme = ExtResource( 1 )
+text = "0"
+fit_content_height = true
+scroll_active = false
+
+[node name="Bees" type="VBoxContainer" parent="HBoxContainer"]
+margin_left = 220.0
+margin_right = 268.0
+margin_bottom = 34.0
+rect_min_size = Vector2( 48, 32 )
+
+[node name="BeesLabel" type="RichTextLabel" parent="HBoxContainer/Bees"]
+margin_right = 48.0
+margin_bottom = 15.0
+theme = ExtResource( 1 )
+text = "BEES"
+fit_content_height = true
+scroll_active = false
+
+[node name="BeesNumber" type="RichTextLabel" parent="HBoxContainer/Bees"]
+margin_top = 19.0
+margin_right = 48.0
+margin_bottom = 34.0
+theme = ExtResource( 1 )
+text = "0"
+fit_content_height = true
+scroll_active = false
+
+[connection signal="pressed" from="puzzle_button" to="." method="_on_puzzle_button_pressed"]

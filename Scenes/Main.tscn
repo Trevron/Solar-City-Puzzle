@@ -1,0 +1,337 @@
+[gd_scene load_steps=41 format=2]
+
+[ext_resource path="res://GFX/Environment/deadcity.png" type="Texture" id=1]
+[ext_resource path="res://GFX/Environment/Solarroad.png" type="Texture" id=2]
+[ext_resource path="res://GUI/pixel_theme.tres" type="Theme" id=3]
+[ext_resource path="res://SFX/Solarpunk Loop.mp3" type="AudioStream" id=4]
+[ext_resource path="res://Scenes/GUI.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Scripts/Main.gd" type="Script" id=6]
+[ext_resource path="res://GFX/Environment/Solarmountains.png" type="Texture" id=7]
+[ext_resource path="res://GFX/Environment/deadapartment.png" type="Texture" id=8]
+[ext_resource path="res://GFX/Environment/deadbkg1.png" type="Texture" id=9]
+[ext_resource path="res://GFX/Environment/Solartrees.png" type="Texture" id=10]
+[ext_resource path="res://GFX/Environment/deadroad.png" type="Texture" id=11]
+[ext_resource path="res://GFX/Environment/Solarbkg.png" type="Texture" id=12]
+[ext_resource path="res://GFX/Environment/Solarground.png" type="Texture" id=13]
+[ext_resource path="res://GFX/Environment/deadforeground.png" type="Texture" id=14]
+[ext_resource path="res://GFX/Environment/deadfactory.png" type="Texture" id=15]
+[ext_resource path="res://GFX/Environment/Solarapartment.png" type="Texture" id=16]
+[ext_resource path="res://GFX/Environment/Solarcity.png" type="Texture" id=17]
+[ext_resource path="res://GFX/Environment/Solarforeground.png" type="Texture" id=18]
+[ext_resource path="res://GFX/Environment/deadground.png" type="Texture" id=19]
+[ext_resource path="res://GFX/Environment/deadmountains.png" type="Texture" id=20]
+[ext_resource path="res://GUI/Icons/puzzle_hover_32px.png" type="Texture" id=21]
+[ext_resource path="res://GUI/Icons/puzzle_pressed_32px.png" type="Texture" id=22]
+[ext_resource path="res://GUI/Icons/puzzle_normal_32px.png" type="Texture" id=23]
+[ext_resource path="res://Scenes/BombWindow.tscn" type="PackedScene" id=24]
+[ext_resource path="res://GUI/GUI_32px_Patch.png" type="Texture" id=25]
+[ext_resource path="res://GUI/Icons/exit_hover_8px.png" type="Texture" id=26]
+[ext_resource path="res://GUI/Icons/exit_normal_8px.png" type="Texture" id=27]
+[ext_resource path="res://GUI/Icons/exit_pressed_8px.png" type="Texture" id=28]
+[ext_resource path="res://GUI/Icons/ok_normal_8px.png" type="Texture" id=29]
+[ext_resource path="res://GUI/Icons/ok_pressed_8px.png" type="Texture" id=30]
+[ext_resource path="res://GUI/Icons/ok_hover_8px.png" type="Texture" id=31]
+
+[sub_resource type="Gradient" id=1]
+colors = PoolColorArray( 0.393309, 0.430889, 0.153043, 1, 0.307525, 0.368389, 0.301409, 1 )
+
+[sub_resource type="GradientTexture" id=2]
+gradient = SubResource( 1 )
+
+[sub_resource type="Curve" id=3]
+max_value = 10.0
+_data = [ Vector2( 0, 0 ), 0.0, 0.0, 0, 0, Vector2( 0.95679, 9.8545 ), 4.64373, 0.0, 0, 0 ]
+
+[sub_resource type="CurveTexture" id=4]
+curve = SubResource( 3 )
+
+[sub_resource type="ParticlesMaterial" id=5]
+lifetime_randomness = 0.54
+flag_disable_z = true
+gravity = Vector3( 0, -98, 0 )
+initial_velocity = 10.0
+orbit_velocity = 0.0
+orbit_velocity_random = 0.0
+scale_random = 0.17
+scale_curve = SubResource( 4 )
+color_ramp = SubResource( 2 )
+
+[sub_resource type="RectangleShape2D" id=6]
+extents = Vector2( 46.9962, 40.5478 )
+
+[sub_resource type="RectangleShape2D" id=7]
+extents = Vector2( 52, 20 )
+
+[sub_resource type="RectangleShape2D" id=8]
+extents = Vector2( 28, 16 )
+
+[sub_resource type="StyleBoxTexture" id=9]
+texture = ExtResource( 25 )
+region_rect = Rect2( 0, 0, 96, 96 )
+
+[node name="Main" type="Node2D"]
+script = ExtResource( 6 )
+
+[node name="Environment" type="Node2D" parent="."]
+
+[node name="Background_Dead" type="Sprite" parent="Environment"]
+texture = ExtResource( 9 )
+
+[node name="Background" type="Sprite" parent="Environment"]
+visible = false
+texture = ExtResource( 12 )
+
+[node name="City_Dead" type="Sprite" parent="Environment"]
+texture = ExtResource( 1 )
+
+[node name="City" type="Sprite" parent="Environment"]
+visible = false
+texture = ExtResource( 17 )
+
+[node name="Mountains_Dead" type="Sprite" parent="Environment"]
+texture = ExtResource( 20 )
+
+[node name="Mountains" type="Sprite" parent="Environment"]
+visible = false
+texture = ExtResource( 7 )
+
+[node name="Ground_Dead" type="Sprite" parent="Environment"]
+texture = ExtResource( 19 )
+
+[node name="Ground" type="Sprite" parent="Environment"]
+visible = false
+texture = ExtResource( 13 )
+
+[node name="Road_Dead" type="Sprite" parent="Environment"]
+texture = ExtResource( 11 )
+
+[node name="Road" type="Sprite" parent="Environment"]
+visible = false
+texture = ExtResource( 2 )
+
+[node name="Smog1" type="Particles2D" parent="Environment"]
+position = Vector2( 73.9208, -6.20142 )
+amount = 13
+lifetime = 2.0
+speed_scale = 0.3
+process_material = SubResource( 5 )
+
+[node name="Smog2" type="Particles2D" parent="Environment"]
+position = Vector2( 102.943, -1.48834 )
+amount = 13
+lifetime = 2.0
+speed_scale = 0.3
+process_material = SubResource( 5 )
+
+[node name="Factory_Dead" type="Sprite" parent="Environment"]
+texture = ExtResource( 15 )
+
+[node name="Trees" type="Sprite" parent="Environment"]
+visible = false
+texture = ExtResource( 10 )
+
+[node name="Foreground_Dead" type="Sprite" parent="Environment"]
+texture = ExtResource( 14 )
+
+[node name="Foreground" type="Sprite" parent="Environment"]
+visible = false
+texture = ExtResource( 18 )
+
+[node name="Apartment_Dead" type="Sprite" parent="Environment"]
+texture = ExtResource( 8 )
+
+[node name="Apartment" type="Sprite" parent="Environment"]
+visible = false
+texture = ExtResource( 16 )
+
+[node name="ApartmentZone" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ApartmentZone"]
+position = Vector2( -110.981, 48.6277 )
+shape = SubResource( 6 )
+
+[node name="Panel" type="Panel" parent="ApartmentZone"]
+visible = false
+margin_left = -152.0
+margin_top = -28.0
+margin_right = -40.0
+margin_bottom = 4.0
+theme = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="RichTextLabel" type="RichTextLabel" parent="ApartmentZone"]
+visible = false
+margin_left = -148.0
+margin_top = -28.0
+margin_right = -28.0
+margin_bottom = 4.0
+theme = ExtResource( 3 )
+text = "Keep more than 200 bees to upgrade"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="FactoryZone" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="FactoryZone"]
+position = Vector2( 108, 28 )
+shape = SubResource( 7 )
+
+[node name="Panel" type="Panel" parent="FactoryZone"]
+visible = false
+margin_left = -80.0
+margin_top = -76.0
+margin_right = 44.0
+margin_bottom = 16.0
+theme = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="RichTextLabel" type="RichTextLabel" parent="FactoryZone"]
+visible = false
+margin_left = -76.0
+margin_top = -76.0
+margin_right = 44.0
+margin_bottom = 16.0
+theme = ExtResource( 3 )
+text = "Get Pollution under 300 to stop the smog.
+Get Pollution under 200 and have more than 300 trees to replace the factory."
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CityZone" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CityZone"]
+position = Vector2( -32, 4 )
+shape = SubResource( 8 )
+
+[node name="Panel" type="Panel" parent="CityZone"]
+visible = false
+margin_left = -28.0
+margin_top = -68.0
+margin_right = 88.0
+margin_bottom = -20.0
+theme = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="RichTextLabel" type="RichTextLabel" parent="CityZone"]
+visible = false
+margin_left = -24.0
+margin_top = -68.0
+margin_right = 96.0
+margin_bottom = -16.0
+theme = ExtResource( 3 )
+text = "Get solar above 200 and water above 300 to upgrade the city."
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Camera2D" type="Camera2D" parent="."]
+current = true
+zoom = Vector2( 0.5, 0.5 )
+
+[node name="puzzle_button" type="TextureButton" parent="."]
+modulate = Color( 1, 1, 1, 0.701961 )
+margin_left = -152.0
+margin_top = -80.0
+margin_right = -120.0
+margin_bottom = -46.0
+texture_normal = ExtResource( 23 )
+texture_pressed = ExtResource( 22 )
+texture_hover = ExtResource( 21 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="GUI" parent="." instance=ExtResource( 5 )]
+anchor_left = 1.0
+anchor_bottom = 0.0
+margin_left = 180.0
+margin_top = 92.0
+margin_right = 180.0
+margin_bottom = 92.0
+
+[node name="BombWindow" parent="." instance=ExtResource( 24 )]
+visible = false
+position = Vector2( 112, -46 )
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 4 )
+volume_db = -17.165
+autoplay = true
+
+[node name="pollution_timer" type="Timer" parent="."]
+wait_time = 10.0
+autostart = true
+
+[node name="resource_timer" type="Timer" parent="."]
+wait_time = 8.0
+autostart = true
+
+[node name="Warning" type="Node2D" parent="."]
+visible = false
+position = Vector2( -72, -42 )
+z_index = 1
+
+[node name="Panel" type="Panel" parent="Warning"]
+margin_left = -4.0
+margin_right = 156.0
+margin_bottom = 82.0
+custom_styles/panel = SubResource( 9 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Warning"]
+margin_right = 154.0
+margin_bottom = 70.0
+theme = ExtResource( 3 )
+text = "WARNING!
+If you close this window before a match is found you will lose 20 of each resource!"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="WarningOkay" type="TextureButton" parent="Warning"]
+margin_left = 96.0
+margin_top = 64.0
+margin_right = 104.0
+margin_bottom = 72.0
+rect_scale = Vector2( 2, 2 )
+texture_normal = ExtResource( 29 )
+texture_pressed = ExtResource( 31 )
+texture_hover = ExtResource( 30 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="WarningCancel" type="TextureButton" parent="Warning"]
+margin_left = 32.0
+margin_top = 64.0
+margin_right = 40.0
+margin_bottom = 72.0
+rect_scale = Vector2( 2, 2 )
+texture_normal = ExtResource( 27 )
+texture_pressed = ExtResource( 26 )
+texture_hover = ExtResource( 28 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[connection signal="mouse_entered" from="ApartmentZone" to="." method="_on_ApartmentZone_mouse_entered"]
+[connection signal="mouse_exited" from="ApartmentZone" to="." method="_on_ApartmentZone_mouse_exited"]
+[connection signal="mouse_entered" from="FactoryZone" to="." method="_on_FactoryZone_mouse_entered"]
+[connection signal="mouse_exited" from="FactoryZone" to="." method="_on_FactoryZone_mouse_exited"]
+[connection signal="mouse_entered" from="CityZone" to="." method="_on_CityZone_mouse_entered"]
+[connection signal="mouse_exited" from="CityZone" to="." method="_on_CityZone_mouse_exited"]
+[connection signal="pressed" from="puzzle_button" to="." method="_on_puzzle_button_pressed"]
+[connection signal="timeout" from="pollution_timer" to="." method="_on_pollution_timer_timeout"]
+[connection signal="timeout" from="resource_timer" to="." method="_on_resource_timer_timeout"]
+[connection signal="pressed" from="Warning/WarningOkay" to="." method="_on_WarningOkay_pressed"]
+[connection signal="pressed" from="Warning/WarningCancel" to="." method="_on_WarningCancel_pressed"]
